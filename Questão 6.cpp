@@ -1,23 +1,40 @@
 int main(){
 
     int num[8];
-    int numero = num[0];
-    int posi_maior;
-    for(int i = 0; i <8; i++)
+    int maior, menor;
+    int posi_maior, posi_menor;
+
+    for(int i = 0; i < 8; i++)
     {
-        
-        std::cout << "Digite um número: \n";
+        std::cout << "Digite um número: ";
         std::cin >> num[i];
 
-        if(i == 0)
+        if(i == 0) 
         {
-            numero = num[i];
-        }if(num[i] > numero)
-        {
-            numero = num[i];
+            maior = menor = num[i];
+            posi_maior = posi_menor = i;
         }
-        
+        else
+        {
+            if(num[i] > maior)
+            {
+                maior = num[i];
+                posi_maior = i;
+            }
 
+            if(num[i] < menor)
+            {
+                menor = num[i];
+                posi_menor = i;
+            }
+        }
     }
-    std::cout << "Esse número é o maior:  " << numero << "\n";
+
+    std::cout << "\nMaior número: " << maior 
+         << " na posição " << posi_maior << "\n";
+
+    std::cout << "Menor número: " << menor
+         << " na posição " << posi_menor << "\n";
+
+    return 0;
 }
